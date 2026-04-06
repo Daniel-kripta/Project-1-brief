@@ -4,7 +4,18 @@ class Headerjs extends HTMLElement {
         // Aquí dentro escribimos el HTML normal de la cabecera
         this.innerHTML = `
                     <header class="header-nav">
-                    Este es el header
+                    <div class="logoArea"><img src="/assets/logos/circle.svg" alt="Web's logotype">
+                    </div>
+                    <nav class="centralNav">
+                        <ul class="linkPage">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/#projects">Projects</a></li>
+                            <li><a href="/#services">Services</a></li>
+
+
+                            </nav>
+                    <nav class="sandwichMenu"><button class="menuButton"><img src="/assets/icon/menu.svg" alt="Menú"></button></nav>
+                    <button class="contactButton">Contact Us</button>
                     </header>
                 `;
     }
@@ -18,7 +29,18 @@ class Footerjs extends HTMLElement {
         // Aquí dentro escribimos el HTML normal de la cabecera
         this.innerHTML = `
                     <footer>
-                    Este es el footer
+                        <div class="address">
+                            <img src="/assets/logos/circle.svg" alt="Circle's logo">
+                            <address>2972 Westheimer Rd. Santa Ana,<br>Illinois 85486</address>
+                        </div>
+                        <div class="footerLinks">
+                            <ul class="linkPage">
+                                <li><a href="">Team</a></li>
+                                <li><a href="">Services</a></li>
+                                <li><a href="">About Us</a></li>
+                                <li><a href="">Press</a></li>
+                                <li><a href="">Projects</a></li>
+                                <li><a href="">Privacy Policy</a></li>
                     </footer>
                 `;
     }
@@ -60,35 +82,44 @@ async function getAndDisplayAPI() {
         if (articleLink) {
 
                 articleLink.innerHTML = `
-                <div>
+                <div class="projectDivLink">
+                    <div class="contentLink"><img src="${data[data.length - 1].image}" alt="article image"> 
                     <h3>${data[data.length - 1].name}</h3> 
-                    <img src="${data[data.length - 1].image}" alt="article image"> 
-                    <p>${data[data.length - 1].description}</p>
+                    <p>${data[data.length - 1].description}</p></div>
+                    <div class="learnMore"><a class="linkPage" href="/pages/?id=${data[data.length - 1].uuid}">Learn more</a></div>
                 </div>
-                <div>
+                <div class="projectDivLink">
+                    <div class="contentLink"><img src="${data[data.length - 2].image}" alt="article image">     
                     <h3>${data[data.length - 2].name}</h3> 
-                    <img src="${data[data.length - 2].image}" alt="article image"> 
-                    <p>${data[data.length - 2].description}</p>
+                    <p>${data[data.length - 2].description}</p></div>
+                    <div class="learnMore"><a class="linkPage" href="/pages/?id=${data[data.length - 2].uuid}">Learn more</a></div>
                 </div>
-                <div>
+                <div class="projectDivLink">
+                    <div class="contentLink"><img src="${data[data.length - 3].image}" alt="article image">
                     <h3>${data[data.length - 3].name}</h3> 
-                    <img src="${data[data.length - 3].image}" alt="article image"> 
-                    <p>${data[data.length - 3].description}</p>
+                    <p>${data[data.length - 3].description}</p></div>
+                    <div class="learnMore"><a class="linkPage" href="/pages/?id=${data[data.length - 3].uuid}">Learn more</a></div>
                 </div>`;
+
         }
 
         if (articlePage) {
-// falta agregar la lógica del ?1
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const uuidBuscado = urlParams.get("id");
+            const index = data.findIndex(item => item.uuid == uuidBuscado);
+
+
                 articlePage.innerHTML = `
                 <div>
-                    <h1>${data[data.length - 1].name}</h3>
+                    <h1>${data[index].name}</h3>
                     <div class="articleInfo">
-                        <div class="articleDescription">${data[data.length - 1].description}</div>
-                        <div class="articleDate">${data[data.length - 1].completed_on}</div>
+                        <div class="articleDescription">${data[index].description}</div>
+                        <div class="articleDate">${data[index].completed_on}</div>
                     </div> 
-                    <div class="articleImage"><img src="${data[data.length - 1].image}" alt="article image"> 
+                    <div class="articleImage"><img src="${data[index].image}" alt="article image"> 
                     </div>
-                    <p class="bodyArticle">${data[data.length - 1].content}</p>
+                    <p class="bodyArticle">${data[index].content}</p>
                 </div>`;
         }
 
