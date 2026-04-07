@@ -15,8 +15,18 @@
   <body>
     <header-js></header-js>
     <main>
-      <h1></h1>
-      <form class="contact-form" action=""></form>
+      <h1>Contact Us</h1>
+      <form class="contact-form" action="submit" id="contactForm">
+        <div class="inputFull"><label for="name">Full Name*</label><br>
+        <input type="text" name="name" id="name"></div>
+        <div><label for="email">Email</label><br>
+        <input type="email" name="email" id="email" class="inputHalf"></div>
+        <div><label for="phone">Phone</label><br>
+        <input type="number" name="phone" id="phone" class="inputHalf"></div>
+        <div class="inputFull"><label for="message">Message</label><br>
+        <input type="text" name="message" id="message" class="inputFull"></div>
+        <button type="submit" class="inputFull formButton">Submit</button>
+       </form>
     </main>
     <footer-js></footer-js>
 

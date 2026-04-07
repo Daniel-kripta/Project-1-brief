@@ -4,18 +4,18 @@ class Headerjs extends HTMLElement {
         // Aquí dentro escribimos el HTML normal de la cabecera
         this.innerHTML = `
                     <header class="header-nav">
-                    <div class="logoArea"><img src="/assets/logos/circle.svg" alt="Web's logotype">
+                    <div class="logoArea"><a href="/"><img src="/assets/logos/circle.svg" alt="Web's logotype"></a>
                     </div>
                     <nav class="centralNav">
                         <ul class="linkPage">
                             <li><a href="/">Home</a></li>
-                            <li><a href="/#projects">Projects</a></li>
+                            <li><a href="/#Recent-Projects">Projects</a></li>
                             <li><a href="/#services">Services</a></li>
 
 
                             </nav>
                     <nav class="sandwichMenu"><button class="menuButton"><img src="/assets/icon/menu.svg" alt="Menú"></button></nav>
-                    <button class="contactButton">Contact Us</button>
+                    <button class="blueButton contactButton"><a href="/pages/contact/">Contact Us</a></button>
                     </header>
                 `;
     }
@@ -54,7 +54,15 @@ class Information extends HTMLElement {
         // Aquí dentro escribimos el HTML normal de la cabecera
         this.innerHTML = `
                     <section class="client-information">
-                    Este es el cuadro de consulta.
+                        <div><h3>Do you have any questions?</h3>
+                             <br>
+                             <p>Let us help you!</p>
+                        </div>
+                        <form>
+                            <div class="emailInputDiv"><img src="/assets/icon/mail.svg" class="emailIcon" alt=""><input type="email" placeholder="Enter you email" name="email" id="emailInput"></input>
+                            <button type="submit" class="submitButton">Suscribe</button>
+                            </div>
+                        </form>
                     </section>
                 `;
     }
@@ -70,7 +78,7 @@ const API_URL = "https://raw.githubusercontent.com/ironhack-jc/mid-term-api/main
 // Función asíncrona para obtener los artículos
 
 async function getAndDisplayAPI() {
-    const articleLink = document.getElementById("articleLink");
+    const projects = document.getElementById("projects");
     const articlePage = document.getElementById("articlePage");
 
     try {
@@ -79,9 +87,9 @@ async function getAndDisplayAPI() {
 
         const data = await response.json();
 
-        if (articleLink) {
+        if (projects) {
 
-                articleLink.innerHTML = `
+                projects.innerHTML = `
                 <div class="projectDivLink">
                     <div class="contentLink"><img src="${data[data.length - 1].image}" alt="article image"> 
                     <h3>${data[data.length - 1].name}</h3> 
@@ -125,7 +133,7 @@ async function getAndDisplayAPI() {
 
 
         } catch (error) {
-           if (articleLink) {articleLink.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+           if (projects) {projects.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
         }
            if (articlePage) {articlePage.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
         }
