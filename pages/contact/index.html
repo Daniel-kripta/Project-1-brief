@@ -14,19 +14,20 @@
   </head>
   <body>
     <header-js></header-js>
-    <main>
+    <main class="mainContact">
       <h1>Contact Us</h1>
       <form class="contact-form" action="submit" id="contactForm">
         <div class="inputFull"><label for="name">Full Name*</label><br>
-        <input type="text" name="name" id="name"></div>
+        <input type="text" name="name" id="name" required></div>
         <div><label for="email">Email</label><br>
         <input type="email" name="email" id="email" class="inputHalf"></div>
         <div><label for="phone">Phone</label><br>
-        <input type="number" name="phone" id="phone" class="inputHalf"></div>
-        <div class="inputFull"><label for="message">Message</label><br>
-        <input type="text" name="message" id="message" class="inputFull"></div>
+        <input type="tel" name="phone" id="phone" class="inputHalf"></div>
+        <div class="inputFull"><label for="message">Message*</label><br>
+        <textarea type="text" name="message" id="message" class="inputFull" maxlength="350" placeholder="350 characters maximun" required></textarea></div>
         <button type="submit" class="inputFull formButton">Submit</button>
        </form>
+       <div id="submitStatus"></div>
     </main>
     <footer-js></footer-js>
 
