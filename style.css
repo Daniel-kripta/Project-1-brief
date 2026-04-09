@@ -134,7 +134,7 @@ body {
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-image: url(./assets/icon/ligth_mode.svg);
+    background-image: url(Project-1-brief/assets/icon/ligth_mode.svg);
     background-color: #F2F4FC;
     transition: 3s;
     border-radius: 50%;
@@ -146,7 +146,7 @@ input:checked + .slider{
 
 input:checked + .slider:before {
     transform: translateX(26px);
-    background-image: url(./assets/icon/dark_mode.svg);
+    background-image: url(Project-1-brief/assets/icon/dark_mode.svg);
     background-color: #292E47;
 }
 
