@@ -19,12 +19,12 @@ class Headerjs extends HTMLElement {
                             <li><a href="./">Home</a></li>
                             <li><a href="./#Recent-Projects">Projects</a></li>
                             <li><a href="./#services">Services</a></li>
-                            <li class="contactButtonSandwich blueButton"><a href="./pages/contact/">Contact Us</a></li>
+                            <li class="contactButtonSandwich blueButton"><a href="./contact.html">Contact Us</a></li>
                    </ul> </nav>
 
                     <nav class="sandwichMenu"><button class="menuButton" id="sandwichMenu"><img id="iconMenu" src="./assets/icon/menu.svg" alt="Menú"></button></nav>
                     
-                    <div class="blueButton contactButton"><a href="./pages/contact/">Contact Us</a></div>
+                    <div class="blueButton contactButton"><a href="./contact.html">Contact Us</a></div>
 
                     </header>
                 `;
@@ -136,7 +136,7 @@ class Information extends HTMLElement {
         const email = formData.get("emailUser");
         if (email) {
             localStorage.setItem("userEmailTmp", email);
-            window.location.href = "/pages/contact";
+            window.location.href = "contact.html";
         }
 
     });
@@ -179,7 +179,7 @@ async function getAndDisplayAPI() {
               <h3>${article.name}</h3>
               <p>${article.description}</p>
             </div>
-            <div class="targetLearnMore"><a class="linkPage" href="./pages/?id=${article.uuid}">Learn more...</a></div>
+            <div class="targetLearnMore"><a class="linkPage" href="./projects.html?id=${article.uuid}">Learn more...</a></div>
           </div>`; });
 
         }
