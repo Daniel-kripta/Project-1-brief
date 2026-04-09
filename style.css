@@ -436,7 +436,7 @@ footer {
 #pageUp {
     position: fixed;
     bottom: 2%;
-    right: 0%;
+    right: 5%;
     animation: aparecer;
     animation-timeline: scroll() ;
     
@@ -652,7 +652,7 @@ footer address {
     padding-left: 8%;
     height: 15%;
     font-size: 8cqw;
-    color: var(--color-blue);
+    color: blue;
 }
 
 
