@@ -4,7 +4,7 @@ class Headerjs extends HTMLElement {
         // Aquí dentro escribimos el HTML normal de la cabecera
         this.innerHTML = `
                     <header class="header-nav" id="top">
-                    <div class="logoArea"><a href="/"><img class="CircleLogo" src="./assets/logos/circle.svg" alt="Web's logotype"></a>
+                    <div class="logoArea"><a href="./"><img class="CircleLogo" src="./assets/logos/circle.svg" alt="Web's logotype"></a>
                     </div>
 
                     <div id="themeMode">
@@ -16,9 +16,9 @@ class Headerjs extends HTMLElement {
 
                     <nav class="centralNav">
                         <ul class="linkPage">
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/#Recent-Projects">Projects</a></li>
-                            <li><a href="/#services">Services</a></li>
+                            <li><a href="./">Home</a></li>
+                            <li><a href="./#Recent-Projects">Projects</a></li>
+                            <li><a href="./#services">Services</a></li>
                             <li class="contactButtonSandwich blueButton"><a href="./pages/contact/">Contact Us</a></li>
                    </ul> </nav>
 
@@ -179,7 +179,7 @@ async function getAndDisplayAPI() {
               <h3>${article.name}</h3>
               <p>${article.description}</p>
             </div>
-            <div class="targetLearnMore"><a class="linkPage" href="/pages/?id=${article.uuid}">Learn more...</a></div>
+            <div class="targetLearnMore"><a class="linkPage" href="./pages/?id=${article.uuid}">Learn more...</a></div>
           </div>`; });
 
         }
