@@ -709,6 +709,19 @@ footer address {
     text-align: center;
  }
 
+ .errorPage img {
+    margin-top: 50px;
+    width: 300px;
+ }
+
+ .errorPage h1 {
+    color: var(--color-darkblue);
+ }
+
+ .errorPage p{
+    font-size: 1.5em;
+    margin-bottom: 100px;
+ }
 
 /*Responsive sizes*/
 @media screen and (min-width:770px) {
