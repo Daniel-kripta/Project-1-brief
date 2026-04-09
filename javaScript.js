@@ -3,7 +3,7 @@ class Headerjs extends HTMLElement {
     connectedCallback() {
         // Aquí dentro escribimos el HTML normal de la cabecera
         this.innerHTML = `
-                    <header class="header-nav">
+                    <header class="header-nav" id="top">
                     <div class="logoArea"><a href="/"><img src="/assets/logos/circle.svg" alt="Web's logotype"></a>
                     </div>
 
@@ -46,6 +46,7 @@ class Footerjs extends HTMLElement {
                                 <li><a href="">Privacy Policy</a></li>
                             </ul>
                         </div>
+                        <div id="pageUp"><a href=""><img src="/assets/icon/page_up.svg" alt="Page Up"></a></div>
                     </footer>
                 `;
     }
@@ -59,7 +60,7 @@ class Information extends HTMLElement {
         // Aquí dentro escribimos el HTML normal de la cabecera
         this.innerHTML = `
                     <section class="client-information">
-                        <div><h3>Do you have any questions?</h3>
+                        <div><h2>Do you have any questions?</h2>
                              <br>
                              <p>Let us help you!</p>
                         </div>
@@ -94,39 +95,18 @@ async function getAndDisplayAPI() {
 
         if (projects) {
 
-                projects.innerHTML = `
+            Object.values(data.reverse().slice(0, 3)).forEach(article => {    
+           projects.innerHTML += `
           <div class="target">
             <div class="targetImg">
-              <img src="${data[data.length - 1].image}" alt="Article imagen">
+              <img src="${article.image}" alt="Article imagen">
             </div>
             <div class="targetContent">
-              <h3>${data[data.length - 1].name}</h3>
-              <p>${data[data.length - 1].description}</p>
+              <h3>${article.name}</h3>
+              <p>${article.description}</p>
             </div>
-            <div class="targetLearnMore"><a class="linkPage" href="/pages/?id=${data[data.length - 1].uuid}">Learn more...</a></div>
-          </div>
-
-          <div class="target">
-            <div class="targetImg">
-              <img src="${data[data.length - 2].image}" alt="Article imagen">
-            </div>
-            <div class="targetContent">
-              <h3>${data[data.length - 2].name}</h3>
-              <p>${data[data.length - 2].description}</p>
-            </div>
-            <div class="targetLearnMore"><a class="linkPage" href="/pages/?id=${data[data.length - 2].uuid}">Learn more...</a></div>
-          </div>
-
-          <div class="target">
-            <div class="targetImg">
-              <img src="${data[data.length - 3].image}" alt="Article imagen">
-            </div>
-            <div class="targetContent">
-              <h3>${data[data.length - 3].name}</h3>
-              <p>${data[data.length - 3].description}</p>
-            </div>
-            <div class="targetLearnMore"><a class="linkPage" href="/pages/?id=${data[data.length - 3].uuid}">Learn more...</a></div>
-          </div>`;
+            <div class="targetLearnMore"><a class="linkPage" href="/pages/?id=${article.uuid}">Learn more...</a></div>
+          </div>`; });
 
         }
 
