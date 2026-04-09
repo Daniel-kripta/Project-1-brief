@@ -192,6 +192,10 @@ input:checked + .slider:before {
     background-color: blue;
 }
 
+.centralNav li:last-child {
+    color: white;
+}
+
 .centralNav li:last-child::before {
     background-color: blue;
 }
@@ -489,11 +493,11 @@ footer address {
 #emailInput {
     height: 35px;
     width: 30%;
-    font-size: 0.6rem;
+    font-size: 1em;
     border: none;
     padding: 10px 15px;
     padding-left: 35px;
-    color: var(--color-darkblue);
+    color:#292E47;
 }
 
 .emailInputDiv{
@@ -511,7 +515,7 @@ footer address {
 .submitButton {
     height: 35px;
     padding: 10px 15px;
-    font-size: 0.6rem;
+    font-size: 1em;
     border: none;
     background-color: blue;
     color: var(--color-white);
@@ -700,6 +704,10 @@ footer address {
     font-size: medium;
  }
 
+
+ .errorPage {
+    text-align: center;
+ }
 
 
 /*Responsive sizes*/
