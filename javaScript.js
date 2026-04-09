@@ -4,7 +4,7 @@ class Headerjs extends HTMLElement {
         // Aquí dentro escribimos el HTML normal de la cabecera
         this.innerHTML = `
                     <header class="header-nav" id="top">
-                    <div class="logoArea"><a href="/"><img class="CircleLogo" src="/assets/logos/circle.svg" alt="Web's logotype"></a>
+                    <div class="logoArea"><a href="/"><img class="CircleLogo" src="./assets/logos/circle.svg" alt="Web's logotype"></a>
                     </div>
 
                     <div id="themeMode">
@@ -19,12 +19,12 @@ class Headerjs extends HTMLElement {
                             <li><a href="/">Home</a></li>
                             <li><a href="/#Recent-Projects">Projects</a></li>
                             <li><a href="/#services">Services</a></li>
-                            <li class="contactButtonSandwich blueButton"><a href="/pages/contact/">Contact Us</a></li>
+                            <li class="contactButtonSandwich blueButton"><a href="./pages/contact/">Contact Us</a></li>
                    </ul> </nav>
 
-                    <nav class="sandwichMenu"><button class="menuButton" id="sandwichMenu"><img id="iconMenu" src="/assets/icon/menu.svg" alt="Menú"></button></nav>
+                    <nav class="sandwichMenu"><button class="menuButton" id="sandwichMenu"><img id="iconMenu" src="./assets/icon/menu.svg" alt="Menú"></button></nav>
                     
-                    <div class="blueButton contactButton"><a href="/pages/contact/">Contact Us</a></div>
+                    <div class="blueButton contactButton"><a href="./pages/contact/">Contact Us</a></div>
 
                     </header>
                 `;
@@ -86,7 +86,7 @@ class Footerjs extends HTMLElement {
         this.innerHTML = `
                     <footer>
                         <div class="address">
-                            <img class="CircleLogo" src="/assets/logos/circle.svg" alt="Circle's logo">
+                            <img class="CircleLogo" src="./assets/logos/circle.svg" alt="Circle's logo">
                             <address>2972 Westheimer Rd. Santa Ana,<br>Illinois 85486</address>
                         </div>
                         <div class="footerLinks">
@@ -99,7 +99,7 @@ class Footerjs extends HTMLElement {
                                 <li><a href="">Privacy Policy</a></li>
                             </ul>
                         </div>
-                        <div id="pageUp"><a href=""><img src="/assets/icon/page_up.svg" alt="Page Up"></a></div>
+                        <div id="pageUp"><a href=""><img src="./assets/icon/page_up.svg" alt="Page Up"></a></div>
                     </footer>
                 `;
     }
@@ -118,7 +118,7 @@ class Information extends HTMLElement {
                              <p>Let us help you!</p>
                         </div>
                         <form id="infoForm">
-                            <div class="emailInputDiv"><img src="/assets/icon/mail.svg" class="emailIcon" alt="">
+                            <div class="emailInputDiv"><img src="./assets/icon/mail.svg" class="emailIcon" alt="">
                             <input name="emailUser" type="email" placeholder="Enter you email" name="email" id="emailInput" required>
                             </input>
                             <button type="submit" class="submitButton">Ask for</button>
