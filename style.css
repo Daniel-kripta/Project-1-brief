@@ -1,25 +1,29 @@
 * {
+        box-sizing: border-box;
+}
+
+:root {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     font-family: Montserrat, Arial, Helvetica, sans-serif;
 
     /*Color Styles*/
-    --color-blue: #072AC8;
+    --color-blue: rgb(7, 42, 200);
     --color-cyan: #43D2FF;
     --color-skyblue: #A2D6F9;
     --color-ligthsky: #D1EDFF;
-    --color-darkblue: #292E47;
+    --color-darkblue: rgb(41, 46, 71);
     --color-ligthdarkblue: #6B708D;
     --color-white: #F2F4FC;
-    --color-whitesky: #ECF7FF;
+    --color-whitesky: rgb(236, 247, 255);
 
     /*reserva el espacio del scroll*/
     scrollbar-gutter: stable;
 
-}
-
-:root {
+    /*Logo color */
+    --color-logo: none;
+    
+  /*  outline: 1px solid red;*/
 
   /* Sandiwich menu effect on page*/
 
@@ -68,17 +72,82 @@ body {
     width: 100%;
     max-width: 1000px;
     background-color: var(--color-whitesky);
+    color: var(--color-darkblue);
     margin: 0 auto;
     overflow: var(--sroll-body-block);
 }
 
+.bodyTransicion {
+    transition: 3s;
+}
+
 .header-nav {
+    position: relative;
     height: 50px;
     display: flex;
-    background-color: var(--color-whitesky);
     justify-content: space-between;
     align-items: center;
     padding: 30px;
+}
+
+.CircleLogo {
+    filter: var(--color-logo);
+    transition: 3s;
+}
+
+/*Light || Dark mode*/
+
+#themeMode {
+    position: absolute;
+    left: 140px;
+    width: 60px;
+    height: 35px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.switch input{
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #D1EDFF;
+    transition: 3s;
+    border-radius: 35px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-image: url(/assets/icon/ligth_mode.svg);
+    background-color: #F2F4FC;
+    transition: 3s;
+    border-radius: 50%;
+}
+
+input:checked + .slider{
+    background-color: var(--color-ligthdarkblue);    
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+    background-image: url(/assets/icon/dark_mode.svg);
+    background-color: #292E47;
 }
 
 .logoArea img {
@@ -95,14 +164,15 @@ body {
     list-style: none;
     padding: 0;
     font-weight: bold;
-    color: var(--color-blue);
-    text-align: center;  
+    text-align: center; 
+    color: blue; 
 }
 
 .linkPage li {
     position: relative;
     z-index: 1;
     padding: 5px;
+    color: var(--color-blue);
 }
 
 .centralNav li::before {
@@ -112,16 +182,19 @@ body {
     width: 100%;
     height: 100%;
     content: "";
-    background-color: white;
+    background-color: var(--color-whitesky);
     z-index: -3;
     opacity: 70%;
     filter: blur(18px);
 }
 
-.linkPage li:last-child::before {
-    background-color: var(--color-blue);
+.centralNav li:last-child {
+    background-color: blue;
 }
 
+.centralNav li:last-child::before {
+    background-color: blue;
+}
 
 .sandwichMenu {
     display: none;
@@ -207,11 +280,12 @@ main {
 .blueButton { 
     position: relative;
     border: none;
-    color: var(--color-white);
-    background-color: #072AC8;
+    color: var(--color-whitesky);
+    background-color: var(--color-blue);
     padding: 10px 10px;
     cursor: pointer;
 } 
+
 
 .blueButton:hover {
     color: goldenrod;
@@ -391,6 +465,7 @@ footer address {
     width: 100%;
     height: 270px;
     background-color: gold;
+    color: #292E47;
     text-align: center;
     margin-top: 50px;
     margin-bottom: 50px;
@@ -400,6 +475,7 @@ footer address {
     padding-top: 70px;
     padding-bottom: 0;
     border-bottom: none;
+    color: #292E47;
 } 
 
 .client-information form{
@@ -437,7 +513,7 @@ footer address {
     padding: 10px 15px;
     font-size: 0.6rem;
     border: none;
-    background-color: var(--color-blue);
+    background-color: blue;
     color: var(--color-white);
     cursor: pointer;
 
@@ -451,6 +527,7 @@ footer address {
     background-color: white;
     padding: 30px;
     margin: 10px 30px;
+    color: #292E47;
 }
 
 .contact-form input,
@@ -523,7 +600,7 @@ footer address {
 }
 
 .target:hover {
-        box-shadow: 5px 8px 5px 0 var(--color-darkblue);
+        box-shadow: 5px 8px 5px 0 var(--color-ligthdarkblue);
 }
 
 .targetImg {
