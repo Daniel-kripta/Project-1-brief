@@ -58,8 +58,13 @@
                                     <br><i>Message:</i>
                                     <br>${data.message}.
                                     `;
+            console.table(data);
 
             form.reset();
+            nameError.textContent = "";
+            emailError.textContent = "";
+            nameInput.classList.remove("inputError");
+            emailInput.classList.remove("inputError");
             }
         });
 
