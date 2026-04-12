@@ -99,7 +99,7 @@ class Footerjs extends HTMLElement {
                                 <li><a href="">Privacy Policy</a></li>
                             </ul>
                         </div>
-                        <div id="pageUp"><a href=""><img src="./assets/icon/page_up.svg" alt="Page Up"></a></div>
+                        <div id="pageUp"><a href="#"><img src="./assets/icon/page_up.svg" alt="Page Up"></a></div>
                     </footer>
                 `;
     }
@@ -112,7 +112,7 @@ class Information extends HTMLElement {
     connectedCallback() {
 
         this.innerHTML = `
-                    <section class="client-information">
+                    <section class="client-information" id="more-information">
                         <div><h2>Do you have any questions?</h2>
                              <br>
                              <p>Let us help you!</p>
@@ -171,15 +171,15 @@ async function getAndDisplayAPI() {
 
             Object.values(data.reverse().slice(0, 3)).forEach(article => {    
            projects.innerHTML += `
-          <div class="target">
-            <div class="targetImg">
+          <div class="card">
+            <div class="cardImg">
               <img src="${article.image}" alt="Article imagen">
             </div>
-            <div class="targetContent">
+            <div class="cardContent">
               <h3>${article.name}</h3>
               <p>${article.description}</p>
             </div>
-            <div class="targetLearnMore"><a class="linkPage" href="./projects.html?id=${article.uuid}">Learn more...</a></div>
+            <div class="cardLearnMore"><a class="linkPage" href="./projects.html?id=${article.uuid}">Learn more...</a></div>
           </div>`; });
 
         }
@@ -200,10 +200,16 @@ async function getAndDisplayAPI() {
                         <div class="articleDescription">${data[index].description}</div>
                         <div class="articleDate">🗓️ ${data[index].completed_on}</div>
                     </div> 
-                    <div class="articleImage"><img src="${data[index].image}" alt="article image"> 
+                    <div class="articleImage">
+                        <img src="${data[index].image}" alt="article image">
+                        <div class="articleImageBefore"><img src="${data[index].image}" alt="article image"> 
+                        </div> 
                     </div>
                     <div class="bodyArticle">${pText}</div>
                 </div>`;
+
+
+
         }
 
 
@@ -277,10 +283,44 @@ document.getElementById("sandwichMenu").onclick = function() {
 
     /*form help*/
             const form = document.getElementById("contactForm");
+            const nameInput = document.getElementById("name");
+            const emailInput = document.getElementById("email");
+            const nameError = document.getElementById("nameError");
+            const emailError = document.getElementById("emailError");
 
             form.addEventListener("submit", function(event) {
 
             event.preventDefault();
+
+            let isValid = true;
+
+            if (nameInput.value.toLowerCase().includes("ironhack")) {
+
+                nameInput.classList.add("inputError");
+                nameError.textContent = `⚠ "${nameInput.value}" is not available, please choose another name.`;
+
+                isValid = false;
+
+            } else {
+
+                nameInput.classList.remove("input-error");
+                nameError.textContent = "";
+            }
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailPattern.test(emailInput.value)) {
+                emailInput.classList.add("inputError");
+                emailError.textContent = `⚠ ${emailInput.value} is not a valid email.`;
+                isValid = false;
+
+            } else {
+
+                emailInput.classList.remove("inputError");
+                emailError.textContent = "";
+            }
+
+            if (isValid) {
 
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
@@ -304,7 +344,7 @@ document.getElementById("sandwichMenu").onclick = function() {
                                     `;
 
             form.reset();
-
+            }
         });
 
         document.addEventListener("DOMContentLoaded", () => {

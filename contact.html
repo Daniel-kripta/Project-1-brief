@@ -1,7 +1,7 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title>Circle</title>
     <link rel="stylesheet" href="./style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,16 +17,32 @@
     <main class="mainContact">
       <h1>Contact Us</h1>
       <form class="contact-form" action="submit" id="contactForm">
-        <div class="inputFull"><label for="name">Full Name*</label><br>
-        <input type="text" name="name" id="name" required></div>
-        <div><label for="email">Email</label><br>
-        <input type="email" name="email" id="email" class="inputHalf"></div>
-        <div><label for="phone">Phone</label><br>
-        <input type="tel" name="phone" id="phone" class="inputHalf"></div>
-        <div class="inputFull"><label for="message">Message*</label><br>
-        <textarea type="text" name="message" id="message" class="inputFull" maxlength="350" placeholder="350 characters maximun" required></textarea></div>
+
+        <div class="inputFull">
+          <label for="name">Full Name*</label>
+          <input type="text" name="name" id="name" required>
+          <span class="errorAlert" id="nameError"></span>
+        </div>
+
+        <div>
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" class="inputHalf">
+          <span class="errorAlert" id="emailError"></span>
+        </div>
+
+        <div>
+          <label for="phone">Phone</label>
+          <input type="tel" name="phone" id="phone" class="inputHalf">
+        </div>
+
+        <div class="inputFull">
+          <label for="message">Message*</label>
+          <textarea type="text" name="message" id="message" class="inputFull" maxlength="350" placeholder="350 characters maximun" required></textarea>
+        </div>
+
         <button type="submit" class="inputFull formButton">Submit</button>
        </form>
+
        <div id="submitStatus"></div>
     </main>
     <footer-js></footer-js>
